@@ -1,0 +1,165 @@
+body {
+    padding: 40px 20px;
+    background: var(--gradient);
+    background-attachment: fixed;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 760px;
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* ---------- ANTET CARD ---------- */
+.card-header {
+    padding: 30px 40px;
+    background: var(--primary-light);
+    border-bottom: 1px solid var(--border);
+}
+
+.card-header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--navy);
+}
+
+.card-header p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* ---------- FORMULAR PE 2 COLOANE ---------- */
+.register-form {
+    padding: 30px 40px 35px;
+}
+
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;
+    margin: 0 0 28px;
+    padding: 0;
+    border: none;
+    min-width: 0;
+}
+
+legend {
+    width: 100%;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary-light);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+
+.field {
+    min-width: 0;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="file"] {
+    padding: 9px;
+    background: var(--bg);
+    cursor: pointer;
+}
+
+/* ---------- RADIO / CHECKBOX CA "PASTILE" ---------- */
+.choice-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.choice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 9px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.choice:hover {
+    border-color: var(--primary);
+}
+
+.choice:has(input:checked) {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.choice input {
+    width: auto;
+    margin: 0;
+    accent-color: var(--primary);
+}
+
+.choice input:focus {
+    box-shadow: none;
+}
+
+/* ---------- BUTOANE ---------- */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.actions .btn {
+    min-width: 160px;
+}
+
+.login-link {
+    margin: 24px 0 0;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 650px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .card-header,
+    .register-form {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    fieldset {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        flex-direction: column-reverse;
+    }
+
+    .actions .btn {
+        width: 100%;
+    }
+}

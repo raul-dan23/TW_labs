@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Înregistrare</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/register_style.css">
+</head>
+<body>
+<main class="page">
+    <section class="card">
+        <header class="card-header">
+            <h1>Creează un cont</h1>
+            <p>Alătură-te Comunității de Tehnologii Web 2026</p>
+        </header>
+
+        <form class="register-form" action="login.html" method="post"
+              enctype="multipart/form-data">
+
+            <!-- Date cont -->
+            <fieldset>
+                <legend>Date cont</legend>
+
+                <div class="field">
+                    <label for="username">Nume utilizator</label>
+                    <input type="text" id="username" name="username" placeholder="ex: ioanaTW" required>
+                </div>
+
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="nume@e-uvt.ro" required>
+                </div>
+
+                <div class="field">
+                    <label for="password">Parolă</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="field">
+                    <label for="confirm_password">Confirmă parola</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="••••••••" required>
+                </div>
+            </fieldset>
+
+            <!-- Date personale -->
+            <fieldset>
+                <legend>Date personale</legend>
+
+                <div class="field">
+                    <label for="birthdate">Data nașterii</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+                </div>
+
+                <div class="field">
+                    <label>Gen</label>
+                    <div class="choice-group">
+                        <label class="choice"><input type="radio" name="gen" value="f" required> Feminin</label>
+                        <label class="choice"><input type="radio" name="gen" value="m"> Masculin</label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="faculty">Facultate</label>
+                    <select id="faculty" name="faculty" required>
+                        <option value="" disabled selected>Alege facultatea</option>
+                        <option value="info">Matematică și Informatică</option>
+                        <option value="fizica">Fizică</option>
+                        <option value="litere">Litere, Istorie, Filosofie și Teologie</option>
+                        <option value="economie">Economie și Administrarea Afacerilor</option>
+                        <option value="drept">Drept</option>
+                        <option value="altele">Alta</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="accountType">Tip cont</label>
+                    <select id="accountType" name="account_type" required>
+                        <option value="" disabled selected>Alege o opțiune</option>
+                        <option value="student">Student</option>
+                        <option value="profesor">Profesor</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <!-- Profil -->
+            <fieldset>
+                <legend>Profil</legend>
+
+                <div class="field full">
+                    <label>Interese</label>
+                    <div class="choice-group">
+                        <label class="choice"><input type="checkbox" name="interese" value="web"> Front end</label>
+                        <label class="choice"><input type="checkbox" name="interese" value="retele"> Back end</label>
+                        <label class="choice"><input type="checkbox" name="interese" value="ai"> AI</label>
+                        <label class="choice"><input type="checkbox" name="interese" value="javascript"> JavaScript</label>
+                    </div>
+                </div>
+
+                <div class="field full">
+                    <label for="file">Poză de profil</label>
+                    <input type="file" id="file" name="profile_pic" accept="image/*">
+                </div>
+
+                <div class="field full">
+                    <label for="description">Scurtă descriere</label>
+                    <textarea id="description" name="description" rows="3" placeholder="Spune-ne câteva cuvinte despre tine..." required></textarea>
+                </div>
+            </fieldset>
+
+            <div class="actions">
+                <button type="reset" class="btn ghost">Resetează</button>
+                <button type="submit" class="btn primary">Înregistrează-te</button>
+            </div>
+
+            <p class="login-link">Ai deja cont? <a href="login.html">Mergi la login</a></p>
+        </form>
+    </section>
+</main>
+</body>
+</html>

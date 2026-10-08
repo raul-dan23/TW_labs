@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <title>Login</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/login_style.css">
 </head>
@@ -12,18 +13,31 @@
 <body>
 <div class="login-container">
   <div class="login-image">
-    <img src="../media/img_1.png" alt="Imagine login">
+    <img src="../media/img_1.png" alt="Logo Tehnologii Web">
+    <h2>Bine ai revenit!</h2>
+    <p>Comunitatea de Tehnologii Web 2026</p>
   </div>
-  <div class="separator"></div>
-  <div class="login-form">
-    <h2>Login</h2>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Parola">
-    <button>Login</button>
+
+  <form class="login-form" action="home.html">
+    <h1>Autentificare</h1>
+    <p class="subtitle">Introdu datele contului tău</p>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="nume@e-uvt.ro" required>
+    </div>
+
+    <div class="field">
+      <label for="password">Parolă</label>
+      <input type="password" id="password" name="password" placeholder="••••••••" required>
+    </div>
+
+    <button type="submit" class="btn primary">Login</button>
+
     <p class="register-text">
-      Nu ai cont? <a href="#">Înregistrează-te</a>
+      Nu ai cont? <a href="register.html">Înregistrează-te</a>
     </p>
-  </div>
+  </form>
 </div>
 </body>
 
