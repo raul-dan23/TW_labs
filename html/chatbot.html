@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/chatbot_style.css">
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <a href="home.html" class="brand">
+            <span class="brand-logo">TW</span>
+            <span>Comunitatea de Tehnologii Web 2026</span>
+        </a>
+        <nav>
+            <a href="home.html">Acasă</a>
+            <a href="#">Tehnologii</a>
+            <a href="#">Facultăți</a>
+            <a href="chatbot.html" class="active">ChatBot</a>
+            <a href="login.html" class="logout">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container chat-page">
+    <h1>ChatBot</h1>
+    <p class="chat-intro">Răspunde la întrebări scriind litera opțiunii alese: a, b sau c.</p>
+
+    <div class="chat-container" id="chat-container"></div>
+
+    <form id="chat-form" class="chat-form">
+        <label for="user-input" class="sr-only">Răspunsul tău</label>
+        <input type="text" id="user-input" placeholder="Scrie a, b sau c..." autocomplete="off">
+        <button type="submit" class="btn primary">Trimite</button>
+    </form>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Comunitatea de Tehnologii Web</p>
+        <p>
+            <a href="https://uvt.ro">Universitatea de Vest din Timișoara</a>
+            <span class="sep">|</span>
+            <a href="https://info.uvt.ro">Facultatea de Informatică</a>
+        </p>
+    </div>
+</footer>
+
+<script src="../js/chatbot_js.js"></script>
+</body>
+</html>
