@@ -1,0 +1,297 @@
+/* ---------- STILURI DE BAZA (aceleasi culori ca site-ul) ---------- */
+:root {
+    --primary: #2f6fd1;
+    --primary-dark: #1d4f9e;
+    --primary-light: #e8f0fc;
+    --navy: #0f1e36;
+    --accent: #22b8a6;
+    --bg: #f3f6fb;
+    --surface: #ffffff;
+    --text: #1c2536;
+    --muted: #6b7489;
+    --border: #dfe4ee;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(15, 30, 54, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+}
+
+a {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* focus vizibil la navigarea cu tastatura */
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.page-header {
+    padding: 2.5rem 1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--navy) 100%);
+    color: white;
+    text-align: center;
+}
+
+.page-header h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+}
+
+.page-header p {
+    margin: 0;
+    opacity: 0.85;
+}
+
+.page-header a {
+    color: white;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+}
+
+.step {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.step > h2 {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+    color: var(--navy);
+}
+
+.step h3 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.05rem;
+    color: var(--primary);
+}
+
+pre {
+    margin: 0.75rem 0;
+    padding: 1rem;
+    border-radius: 10px;
+    background: var(--navy);
+    color: #e6edf8;
+    font-size: 0.85rem;
+    overflow-x: auto;
+}
+
+code {
+    font-family: Consolas, Menlo, monospace;
+}
+
+p code,
+li code,
+td code {
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th,
+td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    background: var(--primary-light);
+}
+
+/* ---------- PASUL 1: SELECTORI SI CASCADA ---------- */
+/* specificitate (0,1,1): un element + o clasa */
+p.important {
+    color: #c0392b;
+}
+
+/* specificitate (0,1,0): o clasa; este mai jos in fisier, dar pierde la color */
+.important {
+    color: var(--primary);
+    font-size: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid currentColor;
+    background: var(--bg);
+}
+
+/* egalitate de specificitate (0,1,0): castiga ultima regula din fisier */
+.nota {
+    color: var(--primary);
+}
+
+.nota {
+    color: #1e8449;
+}
+
+/* ---------- PASUL 2: BOX MODEL ---------- */
+.demo-scroll {
+    overflow-x: auto;
+    padding: 0.5rem 0;
+}
+
+.card-a,
+.card-b {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid var(--primary);
+    margin-bottom: 1rem;
+    background: var(--primary-light);
+}
+
+.card-a {
+    box-sizing: content-box;
+}
+
+.card-b {
+    box-sizing: border-box;
+    border-color: var(--accent);
+}
+
+/* ---------- PASUL 3: FLEXBOX ---------- */
+.flex-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    background: var(--navy);
+}
+
+.flex-nav .brand {
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.flex-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.flex-nav ul a {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    color: #c7d2e6;
+    text-decoration: none;
+}
+
+.flex-nav ul a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* ---------- PASUL 4: GRID ---------- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 16px;
+    /* 3·240 + 2·16 = 752px  <=  960px  <  4·240 + 3·16 = 1008px  =>  maxim 3 coloane */
+    max-width: 960px;
+}
+
+.gallery-card {
+    padding: 1.25rem;
+    border-radius: 10px;
+    border-top: 4px solid var(--primary);
+    background: var(--bg);
+}
+
+.gallery-card h3 {
+    margin: 0 0 0.25rem;
+    color: var(--navy);
+}
+
+.gallery-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* ---------- PASUL 5: LAYOUT RESPONSIVE (mobile-first) ---------- */
+.layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.layout aside,
+.layout .content {
+    padding: 1.25rem;
+    border-radius: 10px;
+}
+
+.layout aside {
+    background: var(--primary-light);
+}
+
+.layout aside ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.layout .content {
+    border: 1px solid var(--border);
+}
+
+.layout h3 {
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+footer {
+    padding: 1.5rem 1rem;
+    background: var(--navy);
+    color: #9aa7bf;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: white;
+}

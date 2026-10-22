@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3 – Galerie Bootstrap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+<header class="bg-primary text-white py-4 mb-4">
+    <div class="container">
+        <h1 class="h2 mb-1">Pasul 6 – Galeria cu Bootstrap 5.3.8</h1>
+        <p class="mb-0"><a href="index.html" class="link-light">← Înapoi la exercițiile CSS (Pașii 1–5)</a></p>
+    </div>
+</header>
+
+<main class="container mb-5">
+    <p>Un card pe rând pe mobil (<code>.col-12</code>) și două pe rând de la breakpoint-ul md, 768px (<code>.col-md-6</code>). Spațiul dintre carduri vine din <code>.row g-3</code>.</p>
+
+    <!--
+        Link sau buton?
+        - <a href> pentru navigare: duce la altă pagină (aici documentația MDN).
+        - <button type="button"> pentru o acțiune pe pagina curentă, fără navigare
+          (aici marchează cardul ca favorit; aria-pressed anunță starea).
+    -->
+    <div class="row g-3">
+        <div class="col-12 col-md-6">
+            <article class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h5">HTML</h2>
+                    <p class="card-text">Structura și semantica paginii.</p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" class="btn btn-primary">Documentație HTML pe MDN</a>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="button" aria-pressed="false" aria-label="Marchează HTML ca favorit">★</button>
+                </div>
+            </article>
+        </div>
+        <div class="col-12 col-md-6">
+            <article class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h5">CSS</h2>
+                    <p class="card-text">Aspectul vizual: culori, fonturi, layout.</p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" class="btn btn-primary">Documentație CSS pe MDN</a>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="button" aria-pressed="false" aria-label="Marchează CSS ca favorit">★</button>
+                </div>
+            </article>
+        </div>
+        <div class="col-12 col-md-6">
+            <article class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h5">JavaScript</h2>
+                    <p class="card-text">Interactivitate și logică în browser.</p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" class="btn btn-primary">Documentație JavaScript pe MDN</a>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="button" aria-pressed="false" aria-label="Marchează JavaScript ca favorit">★</button>
+                </div>
+            </article>
+        </div>
+        <div class="col-12 col-md-6">
+            <article class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h5">Flexbox</h2>
+                    <p class="card-text">Aliniere pe o singură axă.</p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox" class="btn btn-primary">Ghid Flexbox pe MDN</a>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="button" aria-pressed="false" aria-label="Marchează Flexbox ca favorit">★</button>
+                </div>
+            </article>
+        </div>
+        <div class="col-12 col-md-6">
+            <article class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h5">Grid</h2>
+                    <p class="card-text">Layout pe rânduri și coloane.</p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Grids" class="btn btn-primary">Ghid Grid pe MDN</a>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="button" aria-pressed="false" aria-label="Marchează Grid ca favorit">★</button>
+                </div>
+            </article>
+        </div>
+        <div class="col-12 col-md-6">
+            <article class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title h5">Responsive</h2>
+                    <p class="card-text">Pagini care se adaptează la orice ecran.</p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design" class="btn btn-primary">Ghid Responsive Design pe MDN</a>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="button" aria-pressed="false" aria-label="Marchează Responsive ca favorit">★</button>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+<footer class="bg-dark text-white-50 text-center py-3">
+    <p class="mb-0">Laboratorul 3 – Tehnologii Web 2026 · <a href="index.html" class="link-light">Exercițiile CSS</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

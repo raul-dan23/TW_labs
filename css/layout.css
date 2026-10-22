@@ -1,0 +1,122 @@
+/* ---------- LAYOUT COMUN (home.html, chatbot.html) ---------- */
+body {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--navy);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-weight: 500;
+}
+
+.brand:hover {
+    color: white;
+}
+
+.brand-logo {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--primary);
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+nav a {
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: #c7d2e6;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+nav a.logout {
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+}
+
+nav a.logout:hover {
+    background: var(--accent);
+    color: var(--navy);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    padding: 26px 0;
+    background: var(--navy);
+    color: #9aa7bf;
+    font-size: 14px;
+    text-align: center;
+}
+
+footer p {
+    margin: 4px 0;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: var(--accent);
+}
+
+.sep {
+    margin: 0 8px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 750px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+}
