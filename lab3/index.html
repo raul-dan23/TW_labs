@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3 – Exerciții CSS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<header class="page-header">
+    <h1>Laboratorul 3 – Exerciții CSS</h1>
+    <p>Selectori, cascadă, Box Model, Flexbox, Grid și layout responsive</p>
+    <p><a href="bootstrap-gallery.html">Pasul 6: galeria cu Bootstrap →</a></p>
+</header>
+
+<main>
+    <!-- ================= PASUL 1 ================= -->
+    <section class="step" id="pasul-1">
+        <h2>Pasul 1 – Selectori și cascadă</h2>
+
+        <p class="important">Acesta este un paragraf cu clasa „important”.</p>
+
+        <pre><code>p.important {          /* specificitate (0,1,1) */
+    color: #c0392b;
+}
+
+.important {           /* specificitate (0,1,0) */
+    color: var(--primary);
+    font-size: 1.25rem;
+    padding: 0.75rem 1rem;
+}</code></pre>
+
+        <h3>Care declarație câștigă?</h3>
+        <p>Ambele reguli setează <code>color</code>. Câștigă <code>p.important</code>, deci textul este <strong>roșu</strong>, deși regula <code>.important</code> apare mai jos în fișier.</p>
+        <p>Specificitatea se scrie ca (ID-uri, clase/atribute/pseudo-clase, elemente):</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr><th>Selector</th><th>ID-uri</th><th>Clase</th><th>Elemente</th><th>Specificitate</th></tr>
+                </thead>
+                <tbody>
+                <tr><td><code>p.important</code></td><td>0</td><td>1</td><td>1</td><td>(0,1,1)</td></tr>
+                <tr><td><code>.important</code></td><td>0</td><td>1</td><td>0</td><td>(0,1,0)</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Valorile se compară de la stânga la dreapta: ID-urile sunt egale (0 = 0), clasele sunt egale (1 = 1), iar la elemente 1 &gt; 0. Așadar (0,1,1) &gt; (0,1,0) și câștigă <code>p.important</code>. Celelalte proprietăți (<code>font-size</code>, <code>padding</code>) sunt declarate doar în <code>.important</code>, deci se aplică fără conflict.</p>
+
+        <h3>La egalitate de specificitate câștigă ordinea în fișier</h3>
+        <p class="nota">Acest paragraf are clasa „nota” și este verde.</p>
+        <pre><code>.nota { color: var(--primary); }   /* (0,1,0) – pierde */
+.nota { color: #1e8449; }          /* (0,1,0) – câștigă, este ultima */</code></pre>
+        <p>Ambele reguli au specificitatea (0,1,0), așa că se aplică regula declarată ultima în fișier.</p>
+
+        <h3>Verificarea în DevTools</h3>
+        <ol>
+            <li>Click dreapta pe paragraful roșu → <em>Inspect</em> (sau F12).</li>
+            <li>În tab-ul <strong>Styles</strong> apar ambele reguli, ordonate după prioritate: <code>p.important</code> deasupra, <code>.important</code> dedesubt.</li>
+            <li>Declarația <code>color: var(--primary)</code> din <code>.important</code> apare <s>tăiată</s>, adică a fost suprascrisă. <code>font-size</code> și <code>padding</code> nu sunt tăiate.</li>
+            <li>În tab-ul <strong>Computed</strong>, la <code>color</code>, se vede valoarea finală, rgb(192, 57, 43), și regula din care provine.</li>
+        </ol>
+    </section>
+
+    <!-- ================= PASUL 2 ================= -->
+    <section class="step" id="pasul-2">
+        <h2>Pasul 2 – Box Model</h2>
+
+        <div class="demo-scroll">
+            <div class="card-a"><strong>.card-a</strong> – box-sizing: content-box</div>
+            <div class="card-b"><strong>.card-b</strong> – box-sizing: border-box</div>
+        </div>
+
+        <pre><code>.card-a, .card-b {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid;
+}
+.card-a { box-sizing: content-box; }
+.card-b { box-sizing: border-box; }</code></pre>
+
+        <h3>Calculul lățimii totale</h3>
+        <p><strong>.card-a (content-box):</strong> <code>width</code> se aplică doar conținutului, iar padding-ul și border-ul se adaugă pe deasupra:</p>
+        <p><code>300 + 2·20 + 2·5 = 300 + 40 + 10 = 350px</code></p>
+        <p><strong>.card-b (border-box):</strong> <code>width</code> include padding-ul și border-ul, deci lățimea totală rămâne <code>300px</code>. Pentru conținut rămâne <code>300 − 2·20 − 2·5 = 250px</code>.</p>
+
+        <h3>Ce arată diagrama Box Model din DevTools</h3>
+        <p>Selectează cardul în Elements și deschide tab-ul <strong>Computed</strong>. Diagrama are, din interior spre exterior, content → padding → border → margin.</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr><th></th><th>content (lățime)</th><th>padding</th><th>border</th><th>Lățime totală</th></tr>
+                </thead>
+                <tbody>
+                <tr><td><code>.card-a</code></td><td>300</td><td>20 pe fiecare parte</td><td>5 pe fiecare parte</td><td>350px</td></tr>
+                <tr><td><code>.card-b</code></td><td>250</td><td>20 pe fiecare parte</td><td>5 pe fiecare parte</td><td>300px</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>La hover pe element, DevTools afișează și dimensiunea totală: 350 × … pentru <code>.card-a</code> și 300 × … pentru <code>.card-b</code>.</p>
+    </section>
+
+    <!-- ================= PASUL 3 ================= -->
+    <section class="step" id="pasul-3">
+        <h2>Pasul 3 – Flexbox</h2>
+
+        <nav class="flex-nav" aria-label="Exemplu de navigare Flexbox">
+            <span class="brand">TW 2026</span>
+            <ul>
+                <li><a href="#pasul-1">Acasă</a></li>
+                <li><a href="#pasul-4">Galerie</a></li>
+                <li><a href="#pasul-5">Contact</a></li>
+            </ul>
+        </nav>
+
+        <pre><code>.flex-nav {
+    display: flex;
+    flex-wrap: wrap;                  /* pe ecrane înguste linkurile trec pe rândul următor */
+    justify-content: space-between;   /* brandul în stânga, linkurile în dreapta */
+    align-items: center;              /* centrate pe verticală */
+    gap: 1rem;
+}</code></pre>
+        <p><code>justify-content: space-between</code> pune primul element (brandul) la marginea din stânga și ultimul (lista de linkuri) la marginea din dreapta. Cu <code>flex-wrap: wrap</code>, dacă ecranul e prea îngust, lista trece pe rândul următor în loc să iasă din lățime.</p>
+    </section>
+
+    <!-- ================= PASUL 4 ================= -->
+    <section class="step" id="pasul-4">
+        <h2>Pasul 4 – Grid</h2>
+
+        <div class="gallery">
+            <article class="gallery-card"><h3>HTML</h3><p>Structura și semantica paginii.</p></article>
+            <article class="gallery-card"><h3>CSS</h3><p>Aspectul vizual: culori, fonturi, layout.</p></article>
+            <article class="gallery-card"><h3>JavaScript</h3><p>Interactivitate și logică în browser.</p></article>
+            <article class="gallery-card"><h3>Flexbox</h3><p>Aliniere pe o singură axă.</p></article>
+            <article class="gallery-card"><h3>Grid</h3><p>Layout pe rânduri și coloane.</p></article>
+            <article class="gallery-card"><h3>Responsive</h3><p>Pagini care se adaptează la orice ecran.</p></article>
+        </div>
+
+        <pre><code>.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 16px;
+    max-width: 960px;
+}</code></pre>
+
+        <h3>Cum funcționează</h3>
+        <ul>
+            <li><code>auto-fit</code> pune atâtea coloane câte încap, fiecare de minim 240px, iar <code>1fr</code> le întinde egal pe spațiul rămas.</li>
+            <li><code>min(100%, 240px)</code>: pe un ecran mai îngust de 240px minimul devine 100% din lățime, deci cardul nu iese din pagină.</li>
+        </ul>
+
+        <h3>De ce <code>max-width: 960px</code>?</h3>
+        <p>Fără limită, pe un ecran lat ar încăpea 4 sau mai multe coloane. Calculăm lățimea de care e nevoie (coloane + spații dintre ele):</p>
+        <ul>
+            <li>3 coloane: <code>3·240 + 2·16 = 752px</code></li>
+            <li>4 coloane: <code>4·240 + 3·16 = 1008px</code></li>
+        </ul>
+        <p>Cu <code>max-width: 960px</code> avem 752 ≤ 960 &lt; 1008: încap 3 coloane, dar niciodată 4. Deci galeria are maxim 3 coloane, iar pe ecrane mai înguste trece automat la 2 sau 1.</p>
+    </section>
+
+    <!-- ================= PASUL 5 ================= -->
+    <section class="step" id="pasul-5">
+        <h2>Pasul 5 – Layout responsive</h2>
+
+        <div class="layout">
+            <aside>
+                <h3>Sidebar</h3>
+                <ul>
+                    <li><a href="#pasul-1">Selectori</a></li>
+                    <li><a href="#pasul-2">Box Model</a></li>
+                    <li><a href="#pasul-3">Flexbox</a></li>
+                    <li><a href="#pasul-4">Grid</a></li>
+                </ul>
+            </aside>
+            <div class="content">
+                <h3>Conținut</h3>
+                <p>Pe mobil sidebar-ul și conținutul sunt unul sub altul, pe o singură coloană. De la 768px în sus devin două coloane, iar conținutul este de două ori mai lat decât sidebar-ul (1fr 2fr).</p>
+            </div>
+        </div>
+
+        <pre><code>.layout {
+    display: grid;
+    grid-template-columns: 1fr;          /* mobile-first: o coloană */
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr 2fr;  /* tabletă/desktop: două coloane */
+    }
+}</code></pre>
+
+        <h3>Cerințe de accesibilitate și responsive</h3>
+        <ul>
+            <li><strong>Meta viewport</strong>: <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code> face ca pe telefon pagina să folosească lățimea reală a ecranului.</li>
+            <li><strong>Fără scroll orizontal</strong>: grilele folosesc <code>fr</code> și <code>min(100%, …)</code>, nav-ul are <code>flex-wrap</code>, iar blocurile de cod, tabelele și demo-ul de la Pasul 2 (350px) au <code>overflow-x: auto</code>, deci derulează doar ele, nu toată pagina.</li>
+            <li><strong>Focus vizibil</strong>: <code>:focus-visible { outline: 3px solid var(--accent); }</code>. Apasă Tab și fiecare link primește un contur turcoaz.</li>
+            <li><strong>Zoom 200%</strong>: textul folosește <code>rem</code> și nu există înălțimi fixe, așa că la zoom conținutul crește, iar layout-ul trece pe o coloană (la zoom 200% lățimea efectivă scade sub 768px).</li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>Laboratorul 3 – Tehnologii Web 2026 · <a href="bootstrap-gallery.html">Galeria cu Bootstrap</a></p>
+</footer>
+</body>
+</html>
