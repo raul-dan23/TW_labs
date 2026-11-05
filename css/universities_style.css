@@ -1,0 +1,106 @@
+/* ---------- PAGINA ---------- */
+.uni-page {
+    flex: 1;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.uni-page h1 {
+    margin: 0 0 24px;
+    font-size: 1.8rem;
+    color: var(--navy);
+}
+
+/* ---------- FILTRU + EXPORT ---------- */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.filter {
+    flex: 1 1 260px;
+    min-width: 0;
+}
+
+.toolbar .btn {
+    flex-shrink: 0;
+}
+
+.status {
+    min-height: 1.6em;
+    margin: 0 0 16px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* ---------- TABEL IN CARD ---------- */
+/* scroll orizontal doar in card, nu pe toata pagina */
+.table-card {
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary);
+    overflow-x: auto;
+}
+
+.table-card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th,
+td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+thead th {
+    background: var(--primary-light);
+    color: var(--navy);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: var(--bg);
+}
+
+td a {
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+.empty {
+    text-align: center;
+    color: var(--muted);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+    .uni-page {
+        padding-top: 24px;
+    }
+
+    .toolbar .btn {
+        width: 100%;
+    }
+}
