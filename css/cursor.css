@@ -1,0 +1,29 @@
+/* ---------- CURSOR PERSONALIZAT ---------- */
+#cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* centrat pe varful mouse-ului */
+    transform: translate(-50%, -50%);
+    /* click-urile trec prin cerc spre linkuri si butoane */
+    pointer-events: none;
+    /* peste header-ul sticky (z-index: 10) */
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* apare abia dupa prima miscare a mouse-ului */
+#cursor.visible {
+    opacity: 1;
+}
+
+/* ecrane tactile: nu exista mouse */
+@media (hover: none) {
+    #cursor {
+        display: none;
+    }
+}
