@@ -1,0 +1,63 @@
+/* ---------- PAGINA ---------- */
+.gallery-page {
+    flex: 1;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.gallery-page h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--navy);
+}
+
+.gallery-intro {
+    margin: 4px 0 24px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* ---------- CARUSEL ---------- */
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 600 x 400 pe desktop; pe ecrane inguste se micsoreaza proportional */
+.carousel-view {
+    width: 600px;
+    max-width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border: 4px solid var(--surface);
+    border-radius: var(--radius);
+    background: var(--primary-light);
+    box-shadow: var(--shadow);
+}
+
+.carousel-view img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.carousel-view img:hover {
+    transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel-view img {
+        transition: none;
+    }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+    .gallery-page {
+        padding-top: 24px;
+    }
+}
